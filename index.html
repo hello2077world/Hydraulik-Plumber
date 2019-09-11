@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>Hydraulik (Plumber)</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:400,700&display=swap" rel="stylesheet">
+
+    <!-- Site JS -->
+    <script src="script.js"></script>
+
+    <!-- Site CSS -->
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div id="main_container">
+    <div id="header_container">
+        <h1>Hydraulik (Plumber)</h1>
+        <p>Obracaj rury klikając na nie w celu połączenia <span style="color: red">zaworu</span> z <span style="color: greenyellow">rurą przelewową</span>. Aby potwierdzenić połączenie rur <b>kliknij
+            w zawór</b>, żeby przejść do nastepnęgo poziomu zanim minie czas. Punkty są naliczane za ilość ruchów
+            (<b>300pkt</b> - poniżej 20 ruchów, <b>200pkt</b> - poniżej 30 ruchów, <b>100pkt</b> - poniżej 40 ruchów, <b>0pkt</b> - ponad 40
+            ruchów), ilość użytych rur (<b>100pkt</b> - za każdą użytą rurę), i pozostały czas (<b>10pkt</b> - za każdą sekundę). Czas na ułożenie to <b>jedna minuta</b>.</p>
+    </div> <!-- end #header_container -->
+    <div id="info_container">
+
+        <div id="info_moves">
+            <div class="info_moves_text">Ruchy</div>
+            <div class="info_moves_result">0</div>
+        </div>
+
+
+        <div id="info_score">
+            <div class="info_score_text">Wynik</div>
+            <div class="info_score_result">0000</div>
+        </div>
+
+        <div id="info_time">
+            <div class="info_time_text">Czas</div>
+            <div class="info_time_result">01:00</div>
+        </div>
+
+        <div id="info_buttons">
+            <button class="buttons_newGame">Nowa gra</button>
+            <button class="buttons_endGame" onclick="self.close()">Koniec</button>
+        </div>
+
+    </div> <!-- end #info_container -->
+    <div id="game_container"></div> <!-- end #game_container -->
+    <div id="footer_end">Created by <span style="color:#FCEE09">&copy;hello2077world</span> | 2019</div>
+</div> <!-- end #container -->
+
+</body>
+</html>
