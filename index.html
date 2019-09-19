@@ -23,6 +23,12 @@
     <!-- Site CSS -->
     <link href="style.css" rel="stylesheet" type="text/css">
 
+    <!-- Fontello -->
+    <link href="css/fontello.css" rel="stylesheet" type="text/css">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -34,26 +40,29 @@
 
     <div id="header_container">
         <h1>Hydraulik (Plumber)</h1>
-        <p>Obracaj rury klikając na nie w celu połączenia <span style="color: red">zaworu</span> z <span style="color: greenyellow">rurą przelewową</span>. Aby potwierdzenić połączenie rur <b>kliknij
+        <p>Obracaj rury klikając na nie w celu połączenia <span style="color: red">zaworu</span> z <span
+                style="color: greenyellow">rurą przelewową</span>. Aby potwierdzenić połączenie rur <b>kliknij
             w zawór</b>, żeby przejść do nastepnęgo poziomu zanim minie czas. Punkty są naliczane za ilość ruchów
-            (<b>300pkt</b> - poniżej 20 ruchów, <b>200pkt</b> - poniżej 30 ruchów, <b>100pkt</b> - poniżej 40 ruchów, <b>0pkt</b> - ponad 40
-            ruchów), ilość użytych rur (<b>100pkt</b> - za każdą użytą rurę), i pozostały czas (<b>10pkt</b> - za każdą sekundę). Czas na ułożenie to <b>jedna minuta</b>.</p>
+            (<b>300pkt</b> - poniżej 20 ruchów, <b>200pkt</b> - poniżej 30 ruchów, <b>100pkt</b> - poniżej 40 ruchów,
+            <b>0pkt</b> - ponad 40
+            ruchów), ilość użytych rur (<b>100pkt</b> - za każdą użytą rurę), i pozostały czas (<b>10pkt</b> - za każdą
+            sekundę). Czas na ułożenie to <b>jedna minuta</b>.</p>
     </div> <!-- end #header_container -->
 
     <div id="info_container">
         <div id="info_moves">
-            <div class="info_moves_text">Ruchy</div>
-            <div class="info_moves_result">0</div>
+            <div class="moves_text">Ruchy</div>
+            <div class="moves_result">0</div>
         </div> <!-- end #info_moves -->
 
         <div id="info_score">
-            <div class="info_score_text">Wynik</div>
-            <div class="info_score_result">0000</div>
+            <div class="score_text">Wynik</div>
+            <div class="score_result">0</div>
         </div> <!-- end #info_score -->
 
         <div id="info_time">
-            <div class="info_time_text">Czas</div>
-            <div class="info_time_result">01:00</div>
+            <div class="time_text">Czas</div>
+            <div class="time_result">1:00</div>
         </div> <!-- end #info_time -->
 
         <div id="info_buttons">
@@ -63,11 +72,101 @@
     </div> <!-- end #info_container -->
 
     <div id="game_container">
-        <div>Tekst lorem ipsum lalalaajsdasjd</div>
+
+        <div id="game_valve">
+            <img class="valveBg_img" src="img/valveBg.png" alt="valveBg">
+            <img class="valve_img" src="img/valve.png" alt="valve" onclick="rotate('valve')">
+            <p class="valve_p">Poziom: <span class="valve_p_level"></span></p>
+        </div>
+
+        <div id="game_boxes">
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+            <div class="boxes_box"></div>
+        </div>
+
+        <div id="game_pipe"><img class="pipe_img" src="img/overflow_pipe.png" alt="overflow_pipe"></div>
+
+        <div id="game_menu" class="display_none">
+            <div id="menu_window">
+
+                <div class="window_win display_none">
+                    <h1>Gratulacje!</h1>
+                    <p class="win_level">Poziom <span class="level_level">1</span> ukończony</p>
+                    <div class="win_results">
+                        <div>Czas:</div>
+                        <div class="results_time">??? =</div>
+                        <div class="results_time_points">????</div>
+                        <div>Ruchy:</div>
+                        <div class="results_moves"></div>
+                        <div class="results_moves_points"></div>
+                        <div>Rury:</div>
+                        <div class="results_pipes"></div>
+                        <div class="results_pipes_points"></div>
+                        <div>Suma:</div>
+                        <div class="results_all"></div>
+                        <div class="results_all_points"></div>
+                    </div>
+                    <button class="win_button" onclick="next_level()"><a>Następny poziom</a></button>
+
+                </div>
+
+                <div class="window_lose display_none">
+                    <h1>Game over</h1>
+                    <p>Twój końcowy wynik to:</p>
+                    <p class="lose_score">0</p>
+                    <button class="lose_button" onclick="reset_game()"><a>Zagraj ponownie</a></button>
+                </div>
+
+                <div class="window_end display_none">
+                    <h1>Ukończyłeś/aś grę!</h1>
+                    <h3>Gratulacje! Udało Ci się wszędzie doprowadzić wodę.</h3>
+                    <h3><i class="icon-money"></i><i class="icon-money"></i><i class="icon-money"></i><i class="icon-money"></i></h3>
+                    <p>Twój końcowy wynik to:</p>
+                    <p class="end_score">0</p>
+                    <button class="end_button" onclick="reset_game()"><a>Zacznij od nowa</a></button>
+                </div>
+
+            </div>
+
+        </div>
+
     </div> <!-- end #game_container -->
 
+
     <div id="footer_end">Created by <span style="color:#FCEE09">&copy;hello2077world</span> | 2019</div>
+
 </div> <!-- end #container -->
+
 
 </body>
 </html>

@@ -17,8 +17,8 @@ body {
 #main_container {
     /*border: 1px solid cyan;*/
     margin: 0 auto;
-    width: 1276px;
-    height: 900px;
+    /*width: 1276px;*/
+    /*height: 950px;*/
     font-size: 1.2em;
 }
 
@@ -41,7 +41,7 @@ body {
 
 #header_container > p {
     margin: 0.5% 1% 0 1%;
-    font-size: 0.9em;
+    font-size: 1.1em;
 }
 
 #header_container > p:first-letter {
@@ -89,11 +89,11 @@ body {
     font-size: 2em;
 }
 
-.info_score_text {
+.score_text {
     /**/
 }
 
-.info_score_result {
+.score_result {
     /**/
 }
 
@@ -168,19 +168,286 @@ body {
 /* #game_container */
 
 #game_container {
-    /*border: 1px solid violet;*/
-    height: 57%;
+    background-color: #43434a;
+    border: 3px double black;
+    height: 53%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: grid;
+    grid-template-rows: 1fr 6fr 1fr;
+    padding: 0 10.5% 0 10.5%;
+    position: relative;
 }
+
+/*----------------*/
+/* #game_valve */
+
+#game_valve {
+    /*border: 1px solid cyan;*/
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.valveBg_img {
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: 3.3%;
+    position: absolute;
+}
+
+.valve_img {
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: 3.3%;
+    position: absolute;
+    transition: all 1000ms ease-out;
+}
+
+.valve_p {
+    margin-left: 17.5%;
+    font-size: 1.5em;
+    letter-spacing: 3px;
+}
+
+.valve_p_level {
+    color: coral;
+}
+
+.rotate_valve {
+    transform: rotate(360deg);
+}
+
+/*----------------*/
+/* #game_pipe */
+
+#game_pipe {
+    /*border: 1px solid lightsalmon;*/
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.pipe_img {
+    max-width: 100%;
+    max-height: 100%;
+    margin-right: 3.3%;
+}
+
+/*----------------*/
+/* #game_boxes */
+
+#game_boxes {
+    border: 2px double #212730;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.boxes_box {
+    border: 1px solid #4c4d52;
+    background-color: #646464;
+    width: 125px;
+    height: 125px;
+}
+
+.boxes_box_img {
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transform: rotate(0deg);
+}
+
+.boxes_box > img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.rotate_box {
+    transform: rotate(90deg);
+}
+
+/*----------------*/
+/* #game_menu */
+
+#game_menu {
+    background-color: rgb(128, 128, 128, 0.5);
+    width: 100%;
+    height: 100%;
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+#menu_window {
+    background-color: #50624e;
+    border-radius: 50px;
+    width: 62.5%;
+    height: 62.5%;
+    font-size: 1.2em;
+    text-align: center;
+
+}
+
+/* .window_win */
+.window_win {
+    height: 100%;
+    width: 100%;
+    /*display: none;*/
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.win_level {
+    color: coral;
+}
+
+.win_results {
+    width: 62.5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "tm tm tm"
+    "mv mv mv"
+    "pip pip pip"
+    "ptt ptt pt";
+    padding-top: 1%;
+}
+
+.results_all_points {
+    color: gold;
+}
+
+.win_button {
+    background: #686868;
+    border-style: none;
+    border-top: 2px solid darkgrey ;
+    border-left: 2px solid darkgrey ;
+    width: 25%;
+    height: 10%;
+    font-size: 0.8em;
+    transition: all 300ms;
+    cursor: pointer;
+    margin-top: 1%;
+}
+
+.win_button:hover {
+    background: #797979;
+}
+
+.win_button > a {
+    text-decoration: none;
+    color: #2c301a;
+    display: block;
+}
+
+
+/* .window_lose */
+.window_lose {
+    height: 100%;
+    width: 100%;
+    /*display: none;*/
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lose_score {
+    font-size: 1.3em;
+    color: coral;
+    padding: 2% 0 2% 0;
+}
+
+.lose_button {
+    background: #686868;
+    border-style: none;
+    border-top: 2px solid darkgrey ;
+    border-left: 2px solid darkgrey ;
+    width: 25%;
+    height: 10%;
+    font-size: 0.8em;
+    transition: all 300ms;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.lose_button:hover {
+    background: #797979;
+}
+
+.lose_button > a {
+    text-decoration: none;
+    color: #2c301a;
+    display: block;
+}
+
+/* .window_end */
+.window_end {
+    height: 100%;
+    width: 100%;
+    /*display: none;*/
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.window_end > h3 {
+    color: goldenrod;
+}
+
+.end_score {
+    font-size: 1.3em;
+    color: coral;
+    padding: 2% 0 2% 0;
+}
+
+.end_button {
+    background: #686868;
+    border-style: none;
+    border-top: 2px solid darkgrey ;
+    border-left: 2px solid darkgrey ;
+    width: 25%;
+    height: 10%;
+    font-size: 0.8em;
+    transition: all 300ms;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.end_button:hover {
+    background: #797979;
+}
+
+.end_button > a {
+    text-decoration: none;
+    color: #2c301a;
+    display: block;
+}
+
+/* display: flex/none */
+.display_flex {
+    display: flex;
+}
+
+.display_none {
+    display: none;
+}
+
 
 /*-------------------------------------------*/
 /* footer */
 
 #footer_end {
-    border: 1px solid greenyellow;
+    /*border: 1px solid greenyellow;*/
     height: 3%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1%;
 }
 
 /*-------------------------------------------*/
@@ -191,7 +458,8 @@ body {
 @media (min-width: 1281px) {
     #main_container {
         width: 1276px;
-        height: 900px;
+        height: 1200px;
+        font-size: 1.2em;
     }
 
     /* Styles */
@@ -202,7 +470,17 @@ body {
 @media (min-width: 1025px) and (max-width: 1280px) {
     #main_container {
         width: 1020px;
-        height: 802px;
+        height: 852px;
+        font-size: 0.9em;
+    }
+
+    #game_container {
+        height: 59.5%;
+    }
+
+    .boxes_box {
+        width: 100px;
+        height: 100px;
     }
 
     /* Styles */
@@ -213,7 +491,17 @@ body {
 @media (min-width: 768px) and (max-width: 1024px) {
     #main_container {
         width: 763px;
-        height: 802px;
+        height: 852px;
+        font-size: 0.819em;
+    }
+
+    #game_container {
+        height: 45.5%;
+    }
+
+    .boxes_box {
+        width: 75px;
+        height: 75px;
     }
 
     /* Styles */
@@ -224,7 +512,17 @@ body {
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     #main_container {
         width: 763px;
-        height: 802px;
+        height: 852px;
+        font-size: 0.819em;
+    }
+
+    #game_container {
+        height: 45.5%;
+    }
+
+    .boxes_box {
+        width: 75px;
+        height: 75px;
     }
 
     /* Styles */
@@ -235,7 +533,26 @@ body {
 @media (min-width: 481px) and (max-width: 767px) {
     #main_container {
         width: 476px;
-        height: 802px;
+        height: 852px;
+        font-size: 0.7em;
+    }
+
+    #game_container {
+        height: 28.5%;
+        font-size: 0.7em;
+    }
+
+    .boxes_box {
+        width: 45px;
+        height: 45px;
+    }
+
+    .buttons_newGame {
+        letter-spacing: 2px;
+    }
+
+    .buttons_endGame {
+        letter-spacing: 2px;
     }
 
     /* Styles */
@@ -246,7 +563,49 @@ body {
 @media (min-width: 320px) and (max-width: 480px) {
     #main_container {
         width: 95%;
-        height: 802px;
+        height: 852px;
+        font-size: 0.6em;
+    }
+
+    #game_container {
+        height: 21%;
+        font-size: 0.6em;
+    }
+
+    #game_valve > img {
+        /*width: 30px;
+        margin-left: 7.5%;*/
+        width: 6.5%;
+        margin-right: 4%;
+
+    }
+
+    #game_valve > p {
+        /*padding-left: 7.5%;*/
+    }
+
+    #game_pipe > img {
+        /*width: 30px;
+        margin-right: 7%;*/
+        width: 6%;
+        margin-right: 4%;
+    }
+
+    .boxes_box {
+        width: 33px;
+        height: 33px;
+    }
+
+    #info_buttons {
+        font-size: 0.9em;
+    }
+
+    .buttons_newGame {
+        letter-spacing: 1px;
+    }
+
+    .buttons_endGame {
+        letter-spacing: 1px;
     }
 
     /* Styles */
