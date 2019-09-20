@@ -3,7 +3,7 @@ window.onload = start;
 // const ile jest boxow z rurami
 const amout_of_boxes = 32;
 // czas na rozwiazanie
-const time_for_solution = 60;
+const time_for_solution = 180;
 // czy jest wlaczona animacja
 var it_is_animated = false;
 // ktory box bufor (poprzednia rura)
@@ -27,9 +27,13 @@ var rotate_pipe_audio = new Audio("sounds/rotate_pipe.wav");
 var lose_audio = new Audio("sounds/lose.wav");
 var next_level_audio = new Audio("sounds/next_level.wav");
 var end_game_audio = new Audio("sounds/end_game.wav");
+var clock_audio = new Audio("sounds/clock.wav");
 
 //! FUNCTION start() - wywoluje funkcje po zaladowaniu strony
 function start() {
+
+    //TODO dodaj czas przeznaczony na wykonanie poziomu
+    $('.time_result').html(time_for_solution);
 
     //* switch na kazdy level, dodaje odpowiednie rury zaleznie od levelu
     switch (level) {
@@ -349,6 +353,180 @@ function start() {
                     '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(29)">',
                     '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(30)">',
                     '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(31)">',
+                ];
+                // array 4 obrotow
+                let tab_rotate = ['0deg', '90deg', '180deg', '270deg'];
+                // losowa liczba od 0 do 3
+                let random = Math.floor(Math.random() * 4);
+
+                //TODO dodaj po kolei <img> z tab_pipes_level
+                $('.boxes_box:eq(' + i + ')').html(tab_pipes_level[i]);
+
+                //TODO dodaj losowy obrót
+                $('.boxes_box_img:eq(' + i + ')').css({
+                    "transition-duration": "0ms",
+                    "transform": "rotate(" + tab_rotate[random] + ")"
+                });
+            }
+            break;
+
+        case 5:
+            //TODO wypisz level
+            $('.valve_p_level').html(level);
+
+            //? dodaj rury dla level1 oraz losowy obrot
+            for (i = 0; i < amout_of_boxes; i++) {
+
+                // array kolejnosci rur dla danego levelu
+                let tab_pipes_level = [
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(0)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(1)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(2)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(3)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(4)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(5)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(6)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(7)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(8)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(9)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(10)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(11)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(12)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(13)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(14)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(15)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(16)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(17)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(18)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(19)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(20)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(21)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(22)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(23)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(24)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(25)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(26)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(27)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(28)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(29)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(30)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(31)">',
+                ];
+                // array 4 obrotow
+                let tab_rotate = ['0deg', '90deg', '180deg', '270deg'];
+                // losowa liczba od 0 do 3
+                let random = Math.floor(Math.random() * 4);
+
+                //TODO dodaj po kolei <img> z tab_pipes_level
+                $('.boxes_box:eq(' + i + ')').html(tab_pipes_level[i]);
+
+                //TODO dodaj losowy obrót
+                $('.boxes_box_img:eq(' + i + ')').css({
+                    "transition-duration": "0ms",
+                    "transform": "rotate(" + tab_rotate[random] + ")"
+                });
+            }
+            break;
+
+        case 6:
+            //TODO wypisz level
+            $('.valve_p_level').html(level);
+
+            //? dodaj rury dla level1 oraz losowy obrot
+            for (i = 0; i < amout_of_boxes; i++) {
+
+                // array kolejnosci rur dla danego levelu
+                let tab_pipes_level = [
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(0)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(1)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(2)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(3)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(4)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(5)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(6)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(7)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(8)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(9)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(10)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(11)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(12)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(13)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(14)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(15)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(16)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(17)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(18)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(19)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(20)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(21)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(22)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(23)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(24)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(25)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(26)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(27)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(28)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(29)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(30)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(31)">',
+                ];
+                // array 4 obrotow
+                let tab_rotate = ['0deg', '90deg', '180deg', '270deg'];
+                // losowa liczba od 0 do 3
+                let random = Math.floor(Math.random() * 4);
+
+                //TODO dodaj po kolei <img> z tab_pipes_level
+                $('.boxes_box:eq(' + i + ')').html(tab_pipes_level[i]);
+
+                //TODO dodaj losowy obrót
+                $('.boxes_box_img:eq(' + i + ')').css({
+                    "transition-duration": "0ms",
+                    "transform": "rotate(" + tab_rotate[random] + ")"
+                });
+            }
+            break;
+
+        case 7:
+            //TODO wypisz level
+            $('.valve_p_level').html(level);
+
+            //? dodaj rury dla level1 oraz losowy obrot
+            for (i = 0; i < amout_of_boxes; i++) {
+
+                // array kolejnosci rur dla danego levelu
+                let tab_pipes_level = [
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(0)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(1)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(2)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(3)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(4)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(5)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(6)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(7)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(8)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(9)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(10)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(11)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(12)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(13)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(14)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(15)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(16)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(17)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(18)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(19)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(20)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(21)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(22)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(23)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(24)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(25)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(26)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(27)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(28)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(29)">',
+                    '<img class="boxes_box_img" src="img/pipe2.png" onclick="rotate(30)">',
+                    '<img class="boxes_box_img" src="img/pipe1.png" onclick="rotate(31)">',
                 ];
                 // array 4 obrotow
                 let tab_rotate = ['0deg', '90deg', '180deg', '270deg'];
@@ -852,7 +1030,7 @@ function turn_water(which_box) {
 function successfully_connected() {
 
     //* if zostal rozwiazany ostatni level -> end_game()
-    if (level === 4) return end_game();
+    if (level === 7) return end_game();
 
     //TODO odegraj jesli jest dostepny nastepny level
     next_level_audio.load();
@@ -866,22 +1044,8 @@ function successfully_connected() {
     $('.window_win').toggleClass("display_none");
     $('.window_win').toggleClass("display_flex");
 
-    //zmienna ile pozostalo sekund
-    let time_seconds_left = 0;
-
-    //* wpisz zatrzymany czas z .time_result do zmiennej time_seconds_left
-    if ($('.time_result').text() === '1:00') {
-        time_seconds_left = 60;
-    }
-    else {
-        //TODO zamien zatrzymany czas na array
-        time_seconds_left = $('.time_result').text().split('');
-        //TODO usuń dwie pierwsze pozycje z array (0, :)
-        time_seconds_left.shift();
-        time_seconds_left.shift();
-        //TODO zamien otrzymany czas w array na string a potem od razu na int
-        time_seconds_left = parseInt(time_seconds_left.join(''));
-    }
+    // wpisz zatrzymany czas z .time_result do zmiennej time_seconds_left
+    let time_seconds_left = parseInt($('.time_result').text());
 
     //TODO punkty za pozostaly czas
     points_time_left = time_seconds_left * 10;
@@ -948,6 +1112,7 @@ function reset_game() {
     //TODO poczatkowe parametry/wartosci
     it_is_animated = false;
     which_box_bufor = 0;
+    clearTimeout(timer_setTimeOut);
     timer_setTimeOut = false;
     points_time_left = 0;
     moves = 0;
@@ -959,7 +1124,6 @@ function reset_game() {
     //TODO zresetuj trzy info okna do wartosci poczatkowych
     $('.moves_result').html(points_moves);
     $('.score_result').html(points_total);
-    $('.time_result').html('1:00');
 
     //TODO ustaw level = 1
     level = 1;
@@ -992,7 +1156,6 @@ function next_level() {
     //TODO zresetuj trzy info okna do wartosci poczatkowych
     $('.moves_result').html(points_moves);
     $('.score_result').html(points_total);
-    $('.time_result').html('1:00');
 
     //TODO nastepny level
     level++;
@@ -1012,16 +1175,19 @@ function timer(time_update) {
         return false;
     }
 
-    //* zmniejsz o sekunde if 60
-    if (time_update === 60) time_update = 59;
+    //* zmniejsz o sekunde if jest rowny czasowi przeznaczonemu na rozwiazanie
+    if (time_update === time_for_solution) time_update--;
 
     //TODO odwieza czas a jesli koniec czasu zwroc unsuccessfully_connected()
     timer_setTimeOut = setTimeout(function () {
         //!* odswiezaj czas co sekunde
-        if (time_update >= 10) $('.time_result').html('0:' + time_update + '');
-        else if (time_update > 0) $('.time_result').html('0:0' + time_update + '');
+        if (time_update >= 1) {
+            clock_audio.load();
+            clock_audio.play();
+            $('.time_result').html('' + time_update + '');
+        }
         else {
-            $('.time_result').html('0:00');
+            $('.time_result').html('0');
             return unsuccessfully_connected();
         }
 
@@ -1037,22 +1203,8 @@ function end_game() {
     end_game_audio.load();
     end_game_audio.play();
 
-    //zmienna ile pozostalo sekund
-    let time_seconds_left = 0;
-
-    //* wpisz zatrzymany czas z .time_result do zmiennej time_seconds_left
-    if ($('.time_result').text() === '1:00') {
-        time_seconds_left = 60;
-    }
-    else {
-        //TODO zamien zatrzymany czas na array
-        time_seconds_left = $('.time_result').text().split('');
-        //TODO usuń dwie pierwsze pozycje z array (0, :)
-        time_seconds_left.shift();
-        time_seconds_left.shift();
-        //TODO zamien otrzymany czas w array na string a potem od razu na int
-        time_seconds_left = parseInt(time_seconds_left.join(''));
-    }
+    // wpisz zatrzymany czas z .time_result do zmiennej time_seconds_left
+    let time_seconds_left = parseInt($('.time_result').text());
 
     //TODO punkty za pozostaly czas
     points_time_left = time_seconds_left * 10;
@@ -1079,5 +1231,10 @@ function end_game() {
     //TODO dodaj koncowy wynik do info i do end_game okienka
     $('.score_result').html(points_total);
     $('.end_score').html(points_total);
+
+
+    console.log(points_time_left);
+    console.log(points_moves);
+    console.log(points_pipes);
 
 } // end end_game()
